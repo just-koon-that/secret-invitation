@@ -1,5 +1,8 @@
 import IntroSection from './components/IntroSection';
 import LocationSection from './components/LocationSection';
+import StartTimeSection from './components/StartTimeSection';
+import SleepEatSection from './components/SleepEatSection';
+import ProgramSection from './components/ProgramSection';
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
           </p>
         </div>
         <LocationSection />
+        <StartTimeSection />
+        <SleepEatSection />
+        <ProgramSection />
       </div>
     </main>
   );

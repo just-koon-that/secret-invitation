@@ -3,6 +3,7 @@ import '../css/content.css';
 import { useEffect, useRef } from 'react';
 import Button from './common/Button';
 import { findWayInKakao, findWayInNaver } from '../utils/map';
+import parkingZoneImage from '../assets/images/parking-zone.jpeg';
 
 const SPOT_LAT = 37.5959568282511;
 const SPOT_LNG = 127.610119081614;
@@ -120,8 +121,9 @@ function LocationSection() {
         <p className="text-lg font-nanum text-center">
           펜션 입구 근처 도로 갓길에 주차 가능합니다.
         </p>
-        <div className="h-4"></div> 
-        {/* TODO: 주차장 이미지 */}
+        <div className="m-4">
+          <img src={parkingZoneImage} alt="Parking Zone" />
+        </div>
         <p className="text-lg font-nanum text-center">
           {`당일에 오시면, 친절히 안내드리겠습니다 >3<`}
         </p>
