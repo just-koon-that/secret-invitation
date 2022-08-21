@@ -70,34 +70,50 @@ function EnterCode({length, onSubmit, borderColor = '', disabled}: EnterCodeProp
     textInputs.current[nextIndex].focus();
   };
 
-  const handleFocus = (e: any) => {
+  const handleKeyDown = (e: any) => {
     const currentIndex = Number(e.target.dataset.id);
-    textInputs.current[currentIndex]?.select();
+    switch (e.keyCode) {
+      case 8: {
+        e.preventDefault();
+        if (inputs[currentIndex]) {
+          setInputs(prevInputs => prevInputs.map((input, i) => i === currentIndex ? '' : input));
+        } else if (currentIndex !== 0) {
+          textInputs.current[currentIndex - 1].focus();
+        }
+        break;
+      }
+    }
   };
+
   return (
     <div>
-      {inputs.map((input, index) => ( 
-        <input
-          ref={(ref) => {
-            if (ref) {
-              textInputs.current[index] = ref;
-            }
-          }}
-          data-id={index}
-          key={index}
-          type="text"
-          pattern="[0-9]*"
-          inputMode="numeric"
-          className={`h-14 w-12 m-4 text-center text-3xl rounded-md drop-shadow border-2 ${borderColor}`}
-          min={0}
-          max={9}
-          autoFocus={index === 0}
-          onFocus={handleFocus}
-          onChange={handleChange}
-          value={input}
-          disabled={disabled}
-        />
-      ))}
+      {inputs.map((input, index) => {
+        const color = borderColor 
+          ? borderColor
+          : !!input ? 'border-blue-600' : ''
+        return ( 
+          <input
+            ref={(ref) => {
+              if (ref) {
+                textInputs.current[index] = ref;
+              }
+            }}
+            data-id={index}
+            key={index}
+            type="text"
+            pattern="[0-9]*"
+            inputMode="numeric"
+            className={`h-14 w-12 m-4 text-center text-3xl rounded-md drop-shadow border-2 ${color}`}
+            min={0}
+            max={9}
+            autoFocus={index === 0}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            value={input}
+            disabled={disabled}
+          />
+        )
+      })}
     </div>
   );
 }
