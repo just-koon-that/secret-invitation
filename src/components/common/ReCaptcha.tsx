@@ -1,12 +1,16 @@
 import {useState} from 'react';
-import recaptchaLogo from '../../assets/images/recaptcha-logo.png';
+import reCaptchaLogo from '../../assets/images/recaptcha-logo.png';
 import checkIcon from '../../assets/icons/circle-check.png';
 import {shuffle} from '../../utils/common';
 
-const correctNumber = 9;
+const CORRECT_NUMBER = 9;
 const getRandomImageNumbers = () => shuffle(Array(9).fill(0).map((_, i) => i + 1));
 
-function ReCaptcha() {
+interface ReCaptchaProps {
+  onSubmit?: () => void;
+}
+
+function ReCaptcha({onSubmit}: ReCaptchaProps) {
   const [imageNumbers, setImageNumbers] = useState(getRandomImageNumbers());
   const [isChecked, setIsChecked] = useState(false);
   const [clicked, setClicked] = useState(0);
@@ -20,10 +24,12 @@ function ReCaptcha() {
   };
 
   const handleVerify = () => {
-    const isCorrect = clicked === correctNumber;
+    const isCorrect = clicked === CORRECT_NUMBER;
 
     if (!isCorrect) {
       resetImages();
+    } else {
+      onSubmit?.();
     }
   };
 
@@ -44,7 +50,11 @@ function ReCaptcha() {
         <div className="flex flex-1 align-center">
           <p className="flex-1 my-auto">I'm not a stranger</p>
           <div>
-            <img className="w-16 h-16" src={recaptchaLogo} alt="Recaptcha Logo" />
+            <img
+              className="w-16 h-16"
+              src={reCaptchaLogo}
+              alt="ReCaptcha Logo"
+            />
           </div>
         </div>
       </div>

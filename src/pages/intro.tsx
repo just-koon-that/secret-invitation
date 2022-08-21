@@ -16,7 +16,7 @@ function IntroPage({onNext}: IntroPageProps) {
   const [isFailed, setIsFailed] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
 
-  const handleSubmit = (value: string) => {
+  const handleSubmitCode = (value: string) => {
     const isCorrect = value === ENTER_CODE;
 
     if (isCorrect) {
@@ -41,9 +41,15 @@ function IntroPage({onNext}: IntroPageProps) {
       lt.play();
     }
   };
+
+  const handleSubmitReCaptcha = () => {
+    onNext && onNext();
+  };
+
   const borderColor = isSuccess 
     ? 'border-green-500'
     : isFailed ? 'border-rose-500' : '';
+
   return (
     <main className="h-screen bg-gray-100 flex flex-col items-center justify-center relative">
       <h1 className="text-4xl font-bold font-nanum mb-16">
@@ -51,12 +57,12 @@ function IntroPage({onNext}: IntroPageProps) {
       </h1>
       <EnterCode
         length={4}
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmitCode}
         borderColor={borderColor}
         disabled={isSuccess}
       />
       {isVerified && (
-        <ReCaptcha />
+        <ReCaptcha onSubmit={handleSubmitReCaptcha} />
       )}
       <div ref={effectRef} className="w-12 h-12" />
     </main>

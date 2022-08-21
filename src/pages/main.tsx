@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import IntroSection from '../components/IntroSection';
 import LocationSection from '../components/LocationSection';
 import StartTimeSection from '../components/StartTimeSection';
@@ -5,6 +6,10 @@ import SleepEatSection from '../components/SleepEatSection';
 import ProgramSection from '../components/ProgramSection';
 
 function MainPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="bg-gray-200">
       <div className="max-w-md m-auto  bg-white">
