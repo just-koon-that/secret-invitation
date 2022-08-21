@@ -2,10 +2,10 @@
 function ProgramSection() {
   return (
     <div className="mb-16">
-      <h1 className="text-3xl font-bol font-nanum text-center mb-8">
+      <h1 className="text-3xl font-bol text-center mb-8">
         *결혼엠티* 프로그램 안내
       </h1>
-      <div className="m-4 text-xl text-center font-nanum">
+      <div className="m-4 text-xl text-center">
         <div className="m-4">
           <p className="text-2xl">15:00</p>
           <p>하객분들 입장 시작, 깨알 보물찾기</p>

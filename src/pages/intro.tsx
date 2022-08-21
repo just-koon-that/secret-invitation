@@ -52,7 +52,7 @@ function IntroPage({onNext}: IntroPageProps) {
 
   return (
     <main className="h-screen bg-gray-100 flex flex-col items-center justify-center relative">
-      <div className="mb-16 text-center text-4xl font-bold font-nanum">
+      <div className="mb-16 text-center text-4xl font-bold">
         <h1>어서와,</h1>
         <h1>결혼엠티는 처음이지?</h1>
       </div>

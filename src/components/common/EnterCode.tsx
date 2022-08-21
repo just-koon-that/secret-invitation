@@ -86,6 +86,9 @@ function EnterCode({length, onSubmit, borderColor = '', disabled}: EnterCodeProp
           }}
           data-id={index}
           key={index}
+          type="text"
+          pattern="[0-9]*"
+          inputMode="numeric"
           className={`h-14 w-12 m-4 text-center text-3xl rounded-md drop-shadow border-2 ${borderColor}`}
           min={0}
           max={9}

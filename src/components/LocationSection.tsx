@@ -14,7 +14,7 @@ function LocationSection() {
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const kakaoMaps = (window as any).kakao.maps;
+    const kakaoMaps = (window as any).kakao?.maps;
     if (mapRef.current && kakaoMaps) {
       const map = new kakaoMaps.Map(mapRef.current, {
         center: new kakaoMaps.LatLng(SPOT_LAT, SPOT_LNG),
@@ -87,13 +87,13 @@ function LocationSection() {
   }
   return (
     <div className="mb-16">
-      <h1 className="text-3xl font-nanum text-center mb-8">
+      <h1 className="text-3xl text-center mb-8">
         어디로 가야하죠~ 기경씨
       </h1>
-      <p className="text-lg font-nanum text-center">
+      <p className="text-lg text-center">
         장소: 양평 포레스트펜션 (경기도 양평군 석산로 777)
       </p>
-      <p className="text-lg font-nanum text-center">
+      <p className="text-lg text-center">
         *깊은 산속 주의*
       </p>
       <div className="m-4">
@@ -109,41 +109,41 @@ function LocationSection() {
       </div>
 
       <div className="mb-16">
-        <h2 className="text-2xl font-nanum text-center mb-4">
+        <h2 className="text-2xl text-center mb-4">
           자차
         </h2>
-        <p className="text-lg font-nanum text-center">
+        <p className="text-lg text-center">
           펜션 도착 시 바로 입구에 주차장이 있습니다!
         </p>
-        <p className="text-lg font-nanum text-center">
+        <p className="text-lg text-center">
           만약 주차장이 꽉 찼다면,
         </p>
-        <p className="text-lg font-nanum text-center">
+        <p className="text-lg text-center">
           펜션 입구 근처 도로 갓길에 주차 가능합니다.
         </p>
         <div className="m-4">
           <img src={parkingZoneImage} alt="Parking Zone" />
         </div>
-        <p className="text-lg font-nanum text-center">
+        <p className="text-lg text-center">
           {`당일에 오시면, 친절히 안내드리겠습니다 >3<`}
         </p>
-        <p className="text-lg font-nanum text-center">
+        <p className="text-lg text-center">
           (신랑의 발렛을 원할 시, <span className="font-black">546만원</span>)
         </p>
       </div>
 
       <div className="mb-8">
-        <h2 className="text-2xl font-nanum text-center mb-4">
+        <h2 className="text-2xl text-center mb-4">
           남의 차
         </h2>
         <div className="max-w-xs m-auto">
-          <p className="text-lg font-nanum">
+          <p className="text-lg">
             시간: 2020.10.15 14:00
           </p>
-          <p className="text-lg font-nanum">
+          <p className="text-lg">
             장소: 왕십리역 2호선 0출구 앞 
           </p>
-          <p className="text-lg font-nanum">
+          <p className="text-lg">
             (<span className="underline">안지윤 신부</span> 하객 이라고 표시된 18인승 미니버스)
           </p>
         </div>

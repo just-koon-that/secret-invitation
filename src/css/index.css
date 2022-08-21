@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Nanum";
-  src: url("../../public/fonts/nanum_follower.ttf");
-}
-
 input[disabled] {
   background-color: #ffffff;
 }
