@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import mainBannerImage from '../assets/images/main-banner.jpg';
+import mainBannerImage from '../assets/images/main-banner.jpeg';
 import loveLetteringImage from '../assets/images/love-lettering.gif';
 
 function IntroSection() {
@@ -22,7 +22,7 @@ function IntroSection() {
       />
       <img
         ref={gifRef}
-        className={`absolute top-10 ${isLoaded ? 'block' : 'hidden'}`}
+        className={`absolute bottom-72 ${isLoaded ? 'block' : 'hidden'}`}
         alt="Love lettering"
       />
     </div>
