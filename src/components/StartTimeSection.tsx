@@ -2,7 +2,7 @@
 function StartTimeSection() {
   return (
     <div className="pb-16 text-xl text-center font-custom">
-      <h1 className="text-3xl font-bold mb-8">
+      <h1 className="text-4xl font-bold mb-8">
         결혼식 시작 시간
       </h1>
       <p className="mb-4 text-2xl">
