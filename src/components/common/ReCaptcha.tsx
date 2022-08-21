@@ -62,7 +62,7 @@ function ReCaptcha({onSubmit}: ReCaptchaProps) {
         <div className="absolute top-0">
           <div className="border-2 rounded bg-white flex flex-col align-center w-80 mb-8">
             <div className="m-1 p-4 bg-blue-400 flex-1">
-              <p className="text-white">Select image</p>
+              <p className="text-white">최고의 커플은?</p>
             </div>
             <div className="grid grid-cols-3 gap-1 mx-1 mb-1">
               {imageNumbers.map((imageNumber, i) => (
@@ -87,7 +87,7 @@ function ReCaptcha({onSubmit}: ReCaptchaProps) {
                 disabled={!clicked}
                 onClick={handleVerify}
               >
-                Verify
+                확인
               </button>
             </div>
           </div>
