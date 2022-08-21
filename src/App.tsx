@@ -3,7 +3,7 @@ import MainPage from './pages/main';
 import IntroPage from './pages/intro';
 
 function App() {
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
   const handleNavigateMain = () => {
     setIsAuth(true);
   };

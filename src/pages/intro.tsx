@@ -2,6 +2,7 @@ import {useRef, useState} from 'react';
 import lottie from 'lottie-web';
 import EnterCode from '../components/common/EnterCode';
 import ReCaptcha from '../components/common/ReCaptcha';
+import useWindowDimensions from '../hooks/useWindowDimensions';
 
 const ENTER_CODE = '1234';
 
@@ -15,6 +16,8 @@ function IntroPage({onNext}: IntroPageProps) {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isFailed, setIsFailed] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
+
+  const {height} = useWindowDimensions(false);
 
   const handleSubmitCode = (value: string) => {
     const isCorrect = value === ENTER_CODE;
@@ -51,7 +54,10 @@ function IntroPage({onNext}: IntroPageProps) {
     : isFailed ? 'border-rose-500' : '';
 
   return (
-    <main className="h-screen bg-gray-100 flex flex-col items-center justify-center relative">
+    <main
+      className="h-screen bg-gray-100 flex flex-col items-center justify-center relative"
+      style={{height}}
+    >
       <div className="mb-16 text-center text-4xl font-bold">
         <h1>어서와,</h1>
         <h1>결혼엠티는 처음이지?</h1>
