@@ -60,7 +60,7 @@ function ReCaptcha({onSubmit}: ReCaptchaProps) {
       </div>
       {isChecked && (
         <div className="absolute top-0">
-          <div className="border-2 rounded bg-white flex flex-col align-center w-80">
+          <div className="border-2 rounded bg-white flex flex-col align-center w-80 mb-8">
             <div className="m-1 p-4 bg-blue-400 flex-1">
               <p className="text-white">Select image</p>
             </div>

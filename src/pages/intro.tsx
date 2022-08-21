@@ -54,25 +54,27 @@ function IntroPage({onNext}: IntroPageProps) {
     : isFailed ? 'border-rose-500' : '';
 
   return (
-    <main
-      className="h-screen bg-gray-100 flex flex-col items-center justify-center relative"
-      style={{height}}
-    >
-      <div className="mb-16 text-center text-4xl font-bold">
-        <h1>어서와,</h1>
-        <h1>결혼엠티는 처음이지?</h1>
-      </div>
-      <EnterCode
-        length={4}
-        onSubmit={handleSubmitCode}
-        borderColor={borderColor}
-        disabled={isSuccess}
-      />
-      {isVerified && (
-        <ReCaptcha onSubmit={handleSubmitReCaptcha} />
-      )}
-      <div ref={effectRef} className="w-12 h-12 my-4" />
-    </main>
+    <div className="bg-gray-100">
+      <main
+        className="h-screen flex flex-col items-center justify-center relative"
+        style={{height}}
+      >
+        <div className="my-8 text-center text-5xl font-custom">
+          <h1>어서와,</h1>
+          <h1>결혼엠티는 처음이지?</h1>
+        </div>
+        <EnterCode
+          length={4}
+          onSubmit={handleSubmitCode}
+          borderColor={borderColor}
+          disabled={isSuccess}
+        />
+        {isVerified && (
+          <ReCaptcha onSubmit={handleSubmitReCaptcha} />
+        )}
+        <div ref={effectRef} className="w-12 h-12 my-4" />
+      </main>
+    </div>
   );
 }
 

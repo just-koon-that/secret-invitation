@@ -14,7 +14,7 @@ function MainPage() {
     <main className="bg-gray-200">
       <div className="max-w-md m-auto  bg-white">
         <IntroSection />
-        <div className="mb-16">
+        <div className="mb-16 font-custom">
           <h1 className="text-3xl font-bol text-center mb-8">
             어서와, 결혼엠티는 처음이지?
           </h1>
