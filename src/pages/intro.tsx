@@ -4,7 +4,7 @@ import EnterCode from '../components/common/EnterCode';
 import ReCaptcha from '../components/common/ReCaptcha';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 
-const ENTER_CODE = '1234';
+const ENTER_CODE = '1015';
 
 interface IntroPageProps {
   onNext?: () => void;

@@ -8,7 +8,6 @@ interface EnterCodeProps {
 }
 
 function EnterCode({length, onSubmit, borderColor = '', disabled}: EnterCodeProps) {
-  const effectRef = useRef<HTMLDivElement>(null);
   const textInputs = useRef<HTMLInputElement[]>([]);
   const [inputs, setInputs] = useState<string[]>([]);
 

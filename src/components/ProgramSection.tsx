@@ -11,6 +11,7 @@ function ProgramSection() {
           <p>하객분들 입장 시작, 깨알 보물찾기</p>
           <p className="text-base">(일찍 오는 분들 보물찾기 할 수 있어요!)</p>
         </div>
+        {/* <div className="h-[1px] w-16 bg-gray-300 m-auto" /> */}
         <div className="my-4">
           <p className="text-2xl underline">16:00</p>
           <p>그나마 평범한 결혼식 진행</p>

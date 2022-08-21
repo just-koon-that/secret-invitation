@@ -10,6 +10,8 @@ const SPOT_LNG = 127.610119081614;
 const SPOT_ID = 13087095;
 const SPOT_NAME = '양평 포레스트펜션';
 
+const SHUTTLE_URL = 'https://shuttle.kakaomobility.com/shuttles/135689';
+
 function LocationSection() {
   const mapRef = useRef<HTMLDivElement>(null);
 
@@ -39,19 +41,6 @@ function LocationSection() {
       });
     }
   }, []);
-
-  // useEffect(() => {
-  //   const kakaoMaps = (window as any).kakao.maps;
-  //   if (kakaoMaps) {
-  //     console.log(kakaoMaps.services);
-  //     const ps = new kakaoMaps.services.Places();
-
-  //     ps.keywordSearch('양평 포레스트펜션', (data: any) => {
-  //       console.log(data);
-  //     });
-  //   }
-
-  // }, []);
 
   const getOverlayContent = (closeFn: any) => {
     const content = document.createElement('div');
@@ -84,7 +73,12 @@ function LocationSection() {
     content.appendChild(info);
 
     return content;
-  }
+  };
+
+  const openShuttleTicket = () => {
+    window.open(SHUTTLE_URL);
+  };
+
   return (
     <div className="text-center text-lg font-custom">
       <div className="mb-16">
@@ -131,7 +125,7 @@ function LocationSection() {
         <h2 className="text-2xl mb-8">
           남의 차
         </h2>
-        <div>
+        <div className="mb-8">
           <div className="mb-4">
             <p className="font-bold underline">시간</p>
             <p>2020.10.15 14:00</p>
@@ -139,12 +133,15 @@ function LocationSection() {
           <div className="mb-4">
             <p className="font-bold underline">장소</p>
             <p>왕십리역 2호선 0출구 앞</p>  
+            <p>
+              (<span className="underline">"안지윤 신부"</span> 하객 이라고 표시된 18인승 미니버스)
+            </p>
           </div>
-          <p className="text-lg">
-            (<span className="underline">"안지윤 신부"</span> 하객 이라고 표시된 18인승 미니버스)
-          </p>
+          
         </div>
-        {/* TODO: 탑승권 이미지 첨부 */}
+        <Button onClick={openShuttleTicket}>
+          승차권 보러가기
+        </Button>
       </div>
     </div>
   )
