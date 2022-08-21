@@ -52,9 +52,10 @@ function IntroPage({onNext}: IntroPageProps) {
 
   return (
     <main className="h-screen bg-gray-100 flex flex-col items-center justify-center relative">
-      <h1 className="text-4xl font-bold font-nanum mb-16">
-        어서와, 결혼엠티는 처음이지?
-      </h1>
+      <div className="mb-16 text-center text-4xl font-bold font-nanum">
+        <h1>어서와,</h1>
+        <h1>결혼엠티는 처음이지?</h1>
+      </div>
       <EnterCode
         length={4}
         onSubmit={handleSubmitCode}
@@ -64,7 +65,7 @@ function IntroPage({onNext}: IntroPageProps) {
       {isVerified && (
         <ReCaptcha onSubmit={handleSubmitReCaptcha} />
       )}
-      <div ref={effectRef} className="w-12 h-12" />
+      <div ref={effectRef} className="w-12 h-12 my-4" />
     </main>
   );
 }
