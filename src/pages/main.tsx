@@ -19,7 +19,14 @@ function MainPage() {
           <h1 className="text-4xl font-bold mb-8">
             어서와, 결혼엠티는 처음이지?
           </h1>
-          <p>응, 나도 처음이야.</p>
+          <div className="mb-8">
+            <p>응, 나도 처음이야.</p>
+          </div>
+          <img
+            className="m-auto" 
+            src={require('../assets/images/mudo_chic.png')}
+            alt="Mudo Chic"
+          />
         </div>
         <LocationSection />
         <StartTimeSection />

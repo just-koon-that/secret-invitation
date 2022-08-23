@@ -35,9 +35,17 @@ function SleepEatSection() {
           <p>+</p>
           <p>"2차 밤샘 피로연 (기가맥힌 안주들과 *무제한* 주류)"</p>
         </div>
-        <p>
-          <span className="underline">조식</span> 또한 준비되어 있으니, 해장 걱정 노노!
-        </p>
+        <div className="mb-8">
+          <p>
+            <span className="underline">조식</span> 또한 준비되어 있으니, 해장 걱정 노노!
+          </p>
+        </div>
+        <div className="mx-8">
+          <img
+            src={require('../assets/images/mudo_funny.png')}
+            alt="Mudo Funny"
+          />
+        </div>
       </div>
     </div>
   );

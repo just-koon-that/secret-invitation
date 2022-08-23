@@ -90,7 +90,7 @@ function LocationSection() {
           <p>양평 포레스트펜션 (경기도 양평군 석산로 777)</p>
           <p className="text-xl">* 깊은 산속 주의 *</p>
         </div>
-        <div className="mx-4 my-8">
+        <div className="m-8">
           <div ref={mapRef} className="h-96 w-full" />
         </div>
         <div className="flex justify-center gap-x-2 my-4">
@@ -107,13 +107,15 @@ function LocationSection() {
         <h2 className="text-3xl font-bold mb-8">
           자차
         </h2>
-        <div>
+        <div className="mb-8">
           <p>펜션 도착 시 바로 입구에 주차장이 있습니다!</p>
           <p>만약 주차장이 꽉 찼다면,</p>
           <p>펜션 입구 근처 도로 갓길에 주차 가능합니다.</p>
-          <div className="mx-4 my-8">
-            <img src={parkingZoneImage} alt="Parking Zone" />
-          </div>
+        </div>
+        <div className="m-8">
+          <img src={parkingZoneImage} alt="Parking Zone" />
+        </div>
+        <div className="m-8">
           <p>{`당일에 오시면, 친절히 안내드리겠습니다 >3<`}</p>
           <p>
             (신랑의 발렛을 원할 시, <span className="underline">546만원</span>)
