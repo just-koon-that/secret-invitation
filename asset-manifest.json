@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/secret-invitation/static/css/main.edfdbf2e.css",
-    "main.js": "/secret-invitation/static/js/main.b17ce498.js",
+    "main.css": "/secret-invitation/static/css/main.ff29c16d.css",
+    "main.js": "/secret-invitation/static/js/main.3f6d55a0.js",
     "static/js/787.6a862505.chunk.js": "/secret-invitation/static/js/787.6a862505.chunk.js",
     "static/media/love-lettering.gif": "/secret-invitation/static/media/love-lettering.06fe77abccf056be2486.gif",
     "static/media/parking-zone.jpeg": "/secret-invitation/static/media/parking-zone.22f828b8d58f72da5ee3.jpeg",
@@ -17,12 +17,12 @@
     "static/media/004.jpg": "/secret-invitation/static/media/004.b75de7a01ae8b61c3bdf.jpg",
     "static/media/recaptcha-logo.png": "/secret-invitation/static/media/recaptcha-logo.4f9460efd454f01cccab.png",
     "index.html": "/secret-invitation/index.html",
-    "main.edfdbf2e.css.map": "/secret-invitation/static/css/main.edfdbf2e.css.map",
-    "main.b17ce498.js.map": "/secret-invitation/static/js/main.b17ce498.js.map",
+    "main.ff29c16d.css.map": "/secret-invitation/static/css/main.ff29c16d.css.map",
+    "main.3f6d55a0.js.map": "/secret-invitation/static/js/main.3f6d55a0.js.map",
     "787.6a862505.chunk.js.map": "/secret-invitation/static/js/787.6a862505.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.edfdbf2e.css",
-    "static/js/main.b17ce498.js"
+    "static/css/main.ff29c16d.css",
+    "static/js/main.3f6d55a0.js"
   ]
 }
