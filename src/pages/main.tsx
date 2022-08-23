@@ -4,6 +4,7 @@ import LocationSection from '../components/LocationSection';
 import StartTimeSection from '../components/StartTimeSection';
 import SleepEatSection from '../components/SleepEatSection';
 import ProgramSection from '../components/ProgramSection';
+import ImageSection from '../components/ImageSection';
 
 function MainPage() {
   useEffect(() => {
@@ -24,7 +25,7 @@ function MainPage() {
         <StartTimeSection />
         <SleepEatSection />
         <ProgramSection />
-        {/* TODO: 사진 영역 */}
+        <ImageSection />
 
         <div className="pb-16 text-2xl text-center font-custom">
           <h1 className="text-4xl font-bold mb-8">
