@@ -13,7 +13,6 @@ interface Problem {
   correctNumber: number;
 }
 
-const CORRECT_NUMBER = 9;
 const PROBLEMS: Problem[] = [
   {
     keyword: 'wedding',
@@ -54,15 +53,15 @@ function ReCaptcha({onSubmit}: ReCaptchaProps) {
     setClicked(prevNumber => prevNumber !== number ? number : 0);
   };
 
-  const handleVerify = () => {
-    const isCorrect = clicked === CORRECT_NUMBER;
+  const handleVerify = (question: Problem) => {
+    const isCorrect = clicked === question.correctNumber;
 
     if (!isCorrect) {
-      setClicked(0);
+      resetClicked();
       if (step === questions.length - 1) {
         resetQuestions();
       } else {
-        setStep(prevStep => prevStep + 1);
+        nextStep();
       }
     } else {
       onSubmit?.();
@@ -73,7 +72,10 @@ function ReCaptcha({onSubmit}: ReCaptchaProps) {
     // TODO: imageNumbers 도 다시 부를 수 있도록!
     setQuestions(shuffle<Problem>([...PROBLEMS]));
   };
+  const resetClicked = () => setClicked(0);
+  const nextStep = () => setStep(prevStep => prevStep + 1);
 
+  const currentQuestion = questions[step];
   return (
     <div className="relative z-10">
       <div className="border-2 rounded bg-white p-4 flex flex-row align-center w-80">
@@ -101,14 +103,14 @@ function ReCaptcha({onSubmit}: ReCaptchaProps) {
               <p className="text-white">{questions[step].question}</p>
             </div>
             <div className={`grid grid-cols-3 gap-1 mx-1 mb-1`}>
-              {questions[step].imageNumbers.map((imageNumber, i) => (
+              {currentQuestion.imageNumbers.map((imageNumber, i) => (
                 <div
-                  key={i}
+                  key={`${currentQuestion.keyword}-${imageNumber}`}
                   className={`relative ${imageNumber === clicked ? 'p-2' : ''}`}
                   onClick={() => handleClick(imageNumber)}
                 >
                   <img
-                    src={require(`../../assets/images/${questions[step].keyword}/${imageNumber}.jpg`)}
+                    src={require(`../../assets/images/${currentQuestion.keyword}/${imageNumber}.jpg`)}
                     alt={`Sample ${imageNumber}`}
                   />
                   {imageNumber === clicked && (
@@ -121,7 +123,7 @@ function ReCaptcha({onSubmit}: ReCaptchaProps) {
               <button
                 className={`px-6 py-2 ${!clicked ? 'bg-gray-400' : 'bg-blue-400'} text-white`}
                 disabled={!clicked}
-                onClick={handleVerify}
+                onClick={() => handleVerify(currentQuestion)}
               >
                 확인
               </button>
