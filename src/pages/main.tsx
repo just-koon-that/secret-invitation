@@ -15,7 +15,7 @@ function MainPage() {
     <main className="bg-gray-200">
       <div className="max-w-md m-auto  bg-white">
         <IntroSection />
-        <div className="mb-16 text-2xl text-center font-custom">
+        <div className="mb-32 text-2xl text-center font-custom">
           <h1 className="text-4xl font-bold mb-8">
             어서와, 결혼엠티는 처음이지?
           </h1>
@@ -27,7 +27,7 @@ function MainPage() {
         <ProgramSection />
         <ImageSection />
 
-        <div className="pb-16 text-2xl text-center font-custom">
+        <div className="pb-32 text-2xl text-center font-custom">
           <h1 className="text-4xl font-bold mb-8">
             끝.
           </h1>

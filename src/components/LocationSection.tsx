@@ -80,7 +80,7 @@ function LocationSection() {
   };
 
   return (
-    <div className="text-center text-2xl font-custom">
+    <div className="mb-32 text-center text-2xl font-custom">
       <div className="mb-16">
         <h1 className="text-4xl font-bold mb-8">
           어디로 가야하죠~ 기경씨
@@ -147,7 +147,7 @@ function LocationSection() {
         </Button>
       </div>
     </div>
-  )
+  );
 }
 
 export default LocationSection;

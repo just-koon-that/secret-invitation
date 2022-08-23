@@ -1,7 +1,7 @@
 
 function ProgramSection() {
   return (
-    <div className="pb-16 text-center font-custom">
+    <div className="pb-32 text-center font-custom">
       <h1 className="text-4xl font-bold mb-8">
         결혼엠티 프로그램 안내
       </h1>

@@ -24,7 +24,7 @@ function ImageSection() {
     className: 'mySwiper'
   };
   return (
-    <div className="text-center text-2xl font-custom pb-16">
+    <div className="text-center text-2xl font-custom mb-32">
       <h1 className="text-4xl font-bold">
         갤러리
       </h1>

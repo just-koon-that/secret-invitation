@@ -1,6 +1,6 @@
 function SleepEatSection() {
   return (
-    <div className="mb-16 text-2xl font-custom text-center">
+    <div className="mb-32 text-2xl font-custom text-center">
       <h1 className="text-4xl font-bold mb-8">
         숙박 / 식사 안내
       </h1>
@@ -23,16 +23,16 @@ function SleepEatSection() {
         </div>
       </div>
       <div className="mb-8">
-        <div className="mb-4">
+        <div className="mb-12">
           <p>식사는 결혼식 이후,</p>
           <p>
             <span className="underline">대 정규 오피셜 바베큐 파티</span> 와
           </p>
           <p>밤새 먹을 술과 안주로 구성되어 있습니다.</p>
         </div>
-        <div className="mb-4">
+        <div className="mb-12">
           <p>"웨딩식사 (소고기 등심을 포함한 바베큐 정식)"</p>
-          <p className="text-2xl">+</p>
+          <p>+</p>
           <p>"2차 밤샘 피로연 (기가맥힌 안주들과 *무제한* 주류)"</p>
         </div>
         <p>
