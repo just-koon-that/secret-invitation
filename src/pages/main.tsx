@@ -24,6 +24,15 @@ function MainPage() {
         <StartTimeSection />
         <SleepEatSection />
         <ProgramSection />
+        {/* TODO: 사진 영역 */}
+
+        <div className="pb-16 text-2xl text-center font-custom">
+          <h1 className="text-4xl font-bold mb-8">
+            끝.
+          </h1>
+          <p>다양한 경품과 푸짐한 술&안주가 준비되어 있으니,</p>
+          <p>세상 절겁게 놀다 가시길 바랍니다!</p>
+        </div>
       </div>
     </main>
   );

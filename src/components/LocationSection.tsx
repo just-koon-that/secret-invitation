@@ -137,7 +137,10 @@ function LocationSection() {
               (<span className="underline">"안지윤 신부"</span> 하객 이라고 표시된 18인승 미니버스)
             </p>
           </div>
-          
+          <div className="mb-4">
+            <p className="font-bold underline">귀가</p>
+            <p>{`20시 양평 출발 > 21시30분쯤 왕십리 도착`}</p>  
+          </div>
         </div>
         <Button onClick={openShuttleTicket}>
           승차권 보러가기

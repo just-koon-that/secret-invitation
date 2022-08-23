@@ -39,6 +39,11 @@ function ProgramSection() {
           <p>부어라마셔라</p>
           <p className="text-xl">(번외 팀전 - 진정한 KU의 주인을 가린다)</p>
         </div>
+        <div className="my-6">
+          <p className="text-3xl underline">다음날 11:00</p>
+          <p>체크아웃 & 귀가</p>
+          <p className="text-xl">(귀가 차량은 적절히 나누어 안내해줄 예정!)</p>
+        </div>
       </div>
     </div>
   );
