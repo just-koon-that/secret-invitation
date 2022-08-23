@@ -3,16 +3,47 @@ import reCaptchaLogo from '../../assets/images/recaptcha-logo.png';
 import checkIcon from '../../assets/icons/circle-check.png';
 import {shuffle} from '../../utils/common';
 
+const getImageNumbers = (number: number) => Array(number).fill(0).map((_, i) => i + 1);
+const getRandomImageNumbers = (number: number) => shuffle(Array(number).fill(0).map((_, i) => i + 1));
+
+interface Problem {
+  keyword: string;
+  question: string;
+  imageNumbers: number[];
+  correctNumber: number;
+}
+
 const CORRECT_NUMBER = 9;
-const getRandomImageNumbers = () => shuffle(Array(9).fill(0).map((_, i) => i + 1));
+const PROBLEMS: Problem[] = [
+  {
+    keyword: 'wedding',
+    question: '최고의 커플은?',
+    imageNumbers: getRandomImageNumbers(9),
+    correctNumber: 9,
+  }, 
+  {
+    keyword: 'beauty',
+    question: '미녀의 얼굴은?',
+    imageNumbers: getImageNumbers(12),
+    correctNumber: 4,
+  },
+  {
+    keyword: 'happy',
+    question: '세상에서 가장 행복한 남자의 얼굴은?',
+    imageNumbers: getImageNumbers(12),
+    correctNumber: 3,
+  }
+];
 
 interface ReCaptchaProps {
   onSubmit?: () => void;
 }
 
 function ReCaptcha({onSubmit}: ReCaptchaProps) {
-  const [imageNumbers, setImageNumbers] = useState(getRandomImageNumbers());
   const [isChecked, setIsChecked] = useState(false);
+
+  const [step, setStep] = useState(0);
+  const [questions, setQuestions] = useState(shuffle<Problem>([...PROBLEMS]));
   const [clicked, setClicked] = useState(0);
 
   const handleChange = (e: any) => {
@@ -27,15 +58,20 @@ function ReCaptcha({onSubmit}: ReCaptchaProps) {
     const isCorrect = clicked === CORRECT_NUMBER;
 
     if (!isCorrect) {
-      resetImages();
+      setClicked(0);
+      if (step === questions.length - 1) {
+        resetQuestions();
+      } else {
+        setStep(prevStep => prevStep + 1);
+      }
     } else {
       onSubmit?.();
     }
   };
 
-  const resetImages = () => {
-    setClicked(0);
-    setImageNumbers(getRandomImageNumbers());
+  const resetQuestions = () => {
+    // TODO: imageNumbers 도 다시 부를 수 있도록!
+    setQuestions(shuffle<Problem>([...PROBLEMS]));
   };
 
   return (
@@ -62,17 +98,17 @@ function ReCaptcha({onSubmit}: ReCaptchaProps) {
         <div className="absolute top-0">
           <div className="border-2 rounded bg-white flex flex-col align-center w-80 mb-8">
             <div className="m-1 p-4 bg-blue-400 flex-1">
-              <p className="text-white">최고의 커플은?</p>
+              <p className="text-white">{questions[step].question}</p>
             </div>
-            <div className="grid grid-cols-3 gap-1 mx-1 mb-1">
-              {imageNumbers.map((imageNumber, i) => (
+            <div className={`grid grid-cols-3 gap-1 mx-1 mb-1`}>
+              {questions[step].imageNumbers.map((imageNumber, i) => (
                 <div
                   key={i}
                   className={`relative ${imageNumber === clicked ? 'p-2' : ''}`}
                   onClick={() => handleClick(imageNumber)}
                 >
                   <img
-                    src={require(`../../assets/images/wedding/00${imageNumber}.jpg`)}
+                    src={require(`../../assets/images/${questions[step].keyword}/${imageNumber}.jpg`)}
                     alt={`Sample ${imageNumber}`}
                   />
                   {imageNumber === clicked && (
