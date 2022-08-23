@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        custom: ["BBTreeCB"]
+        custom: ["Bujangnim_nunchi"]
       }
     },
   },

@@ -14,13 +14,11 @@ function MainPage() {
     <main className="bg-gray-200">
       <div className="max-w-md m-auto  bg-white">
         <IntroSection />
-        <div className="mb-16 font-custom">
-          <h1 className="text-4xl font-bol text-center mb-8">
+        <div className="mb-16 text-2xl text-center font-custom">
+          <h1 className="text-4xl font-bold mb-8">
             어서와, 결혼엠티는 처음이지?
           </h1>
-          <p className="text-lg text-center">
-            응, 나도 처음이야.
-          </p>
+          <p>응, 나도 처음이야.</p>
         </div>
         <LocationSection />
         <StartTimeSection />

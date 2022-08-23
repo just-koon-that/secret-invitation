@@ -80,9 +80,9 @@ function LocationSection() {
   };
 
   return (
-    <div className="text-center text-lg font-custom">
+    <div className="text-center text-2xl font-custom">
       <div className="mb-16">
-        <h1 className="text-4xl mb-8">
+        <h1 className="text-4xl font-bold mb-8">
           어디로 가야하죠~ 기경씨
         </h1>
         <div>
@@ -104,7 +104,7 @@ function LocationSection() {
       </div>
 
       <div className="mb-16">
-        <h2 className="text-3xl mb-8">
+        <h2 className="text-3xl font-bold mb-8">
           자차
         </h2>
         <div>
@@ -122,18 +122,18 @@ function LocationSection() {
       </div>
 
       <div className="mb-16">
-        <h2 className="text-3xl mb-8">
+        <h2 className="text-3xl font-bold mb-8">
           남의 차
         </h2>
         <div className="mb-8">
           <div className="mb-4">
             <p className="font-bold underline">시간</p>
-            <p className="text-2xl">2022.10.15 14:00</p>
+            <p>2022.10.15 14:00</p>
           </div>
           <div className="mb-4">
             <p className="font-bold underline">장소</p>
-            <p className="text-2xl">왕십리역 2호선 0출구 앞</p>  
-            <p>
+            <p>왕십리역 2호선 0출구 앞</p>  
+            <p className="text-xl">
               (<span className="underline">"안지윤 신부"</span> 하객 이라고 표시된 18인승 미니버스)
             </p>
           </div>
