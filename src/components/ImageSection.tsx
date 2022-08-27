@@ -6,6 +6,8 @@ import '../css/swiper.css';
 import {Swiper, SwiperSlide, SwiperProps} from 'swiper/react';
 import {EffectCoverflow, Pagination} from "swiper";
 
+const AWS_CDN_URL = 'https://d3e2wrlk506d8e.cloudfront.net';
+
 function ImageSection() {
   const params: SwiperProps = {
     effect: 'coverflow',
@@ -29,15 +31,11 @@ function ImageSection() {
         갤러리
       </h1>
       <Swiper {...params}>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="Wedding 1" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="Wedding 2" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="Wedding 3" />
-        </SwiperSlide>
+        {new Array(18).fill('').map((_, i) => (
+          <SwiperSlide key={i}>
+            <img src={`${AWS_CDN_URL}/gallery/${i + 1}.jpg`} alt="Wedding" />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
