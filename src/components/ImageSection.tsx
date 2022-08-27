@@ -4,9 +4,10 @@ import 'swiper/css/pagination';
 import '../css/swiper.css';
 
 import {Swiper, SwiperSlide, SwiperProps} from 'swiper/react';
-import {EffectCoverflow, Pagination} from "swiper";
+import {EffectCoverflow, Pagination} from 'swiper';
+import {AWS_CDN_URL} from '../constants';
 
-const AWS_CDN_URL = 'https://d3e2wrlk506d8e.cloudfront.net';
+
 
 function ImageSection() {
   const params: SwiperProps = {

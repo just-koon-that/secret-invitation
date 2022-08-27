@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import mainBannerImage from '../assets/images/main-banner.jpeg';
-import loveLetteringImage from '../assets/images/love-lettering.gif';
 import useWindowDimensions from '../hooks/useWindowDimensions';
+import {AWS_CDN_URL} from '../constants';
 
 function IntroSection() {
   const gifRef = useRef<HTMLImageElement>(null);
@@ -11,7 +10,7 @@ function IntroSection() {
 
   useEffect(() => {
     if (isLoaded && gifRef.current) {
-      gifRef.current.src = loveLetteringImage;
+      gifRef.current.src = `${AWS_CDN_URL}/love-lettering.gif`;
     }
   }, [isLoaded]);
 
@@ -20,7 +19,7 @@ function IntroSection() {
       <img
         className="w-full object-cover"
         style={{height}}
-        src={mainBannerImage}
+        src={`${AWS_CDN_URL}/banner.jpeg`}
         onLoad={() => setIsLoaded(true)}
         alt="Main banner"
       />
