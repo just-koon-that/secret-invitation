@@ -3,14 +3,12 @@ import '../css/content.css';
 import {useEffect, useRef} from 'react';
 import Button from './common/Button';
 import {findWayInKakao, findWayInNaver} from '../utils/map';
-import parkingZoneImage from '../assets/images/parking-zone.jpeg';
+import {AWS_CDN_URL, SHUTTLE_URL} from '../constants';
 
 const SPOT_LAT = 37.5959568282511;
 const SPOT_LNG = 127.610119081614;
 const SPOT_ID = 13087095;
 const SPOT_NAME = '양평 포레스트펜션';
-
-const SHUTTLE_URL = 'https://shuttle.kakaomobility.com/shuttles/135689';
 
 function LocationSection() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -113,7 +111,7 @@ function LocationSection() {
           <p>펜션 입구 근처 도로 갓길에 주차 가능합니다.</p>
         </div>
         <div className="m-8">
-          <img src={parkingZoneImage} alt="Parking Zone" />
+          <img src={`${AWS_CDN_URL}/parking-zone.jpeg`} alt="Parking Zone" />
         </div>
         <div className="m-8">
           <p>{`당일에 오시면, 친절히 안내드리겠습니다 >3<`}</p>

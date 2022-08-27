@@ -2,6 +2,7 @@ import {useState} from 'react';
 import reCaptchaLogo from '../../assets/images/recaptcha-logo.png';
 import checkIcon from '../../assets/icons/circle-check.png';
 import {shuffle} from '../../utils/common';
+import {AWS_CDN_URL} from '../../constants';
 
 const getImageNumbers = (number: number) => Array(number).fill(0).map((_, i) => i + 1);
 const getRandomImageNumbers = (number: number) => shuffle(Array(number).fill(0).map((_, i) => i + 1));
@@ -110,7 +111,7 @@ function ReCaptcha({onSubmit}: ReCaptchaProps) {
                   onClick={() => handleClick(imageNumber)}
                 >
                   <img
-                    src={require(`../../assets/images/${currentQuestion.keyword}/${imageNumber}.jpg`)}
+                    src={`${AWS_CDN_URL}/problems/${currentQuestion.keyword}/${imageNumber}.jpg`}
                     alt={`Sample ${imageNumber}`}
                   />
                   {imageNumber === clicked && (
