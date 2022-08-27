@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/secret-invitation/static/css/main.bcb572f9.css",
-    "main.js": "/secret-invitation/static/js/main.122cecbc.js",
+    "main.css": "/secret-invitation/static/css/main.637c1c99.css",
+    "main.js": "/secret-invitation/static/js/main.651194ac.js",
     "static/js/787.6a862505.chunk.js": "/secret-invitation/static/js/787.6a862505.chunk.js",
     "static/media/love-lettering.gif": "/secret-invitation/static/media/love-lettering.06fe77abccf056be2486.gif",
     "static/media/parking-zone.jpeg": "/secret-invitation/static/media/parking-zone.22f828b8d58f72da5ee3.jpeg",
@@ -22,12 +22,12 @@
     "static/media/mudo_chic.png": "/secret-invitation/static/media/mudo_chic.2190f628e34b4c126d16.png",
     "static/media/10.jpg": "/secret-invitation/static/media/10.3cfcaf3c35032bb5d97b.jpg",
     "index.html": "/secret-invitation/index.html",
-    "main.bcb572f9.css.map": "/secret-invitation/static/css/main.bcb572f9.css.map",
-    "main.122cecbc.js.map": "/secret-invitation/static/js/main.122cecbc.js.map",
+    "main.637c1c99.css.map": "/secret-invitation/static/css/main.637c1c99.css.map",
+    "main.651194ac.js.map": "/secret-invitation/static/js/main.651194ac.js.map",
     "787.6a862505.chunk.js.map": "/secret-invitation/static/js/787.6a862505.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bcb572f9.css",
-    "static/js/main.122cecbc.js"
+    "static/css/main.637c1c99.css",
+    "static/js/main.651194ac.js"
   ]
 }
