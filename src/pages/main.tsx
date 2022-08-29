@@ -5,6 +5,7 @@ import StartTimeSection from '../components/StartTimeSection';
 import SleepEatSection from '../components/SleepEatSection';
 import ProgramSection from '../components/ProgramSection';
 import ImageSection from '../components/ImageSection';
+import CommentSection from '../components/CommentSection';
 
 function MainPage() {
   useEffect(() => {
@@ -41,6 +42,8 @@ function MainPage() {
           <p>다양한 경품과 푸짐한 술&안주가 준비되어 있으니,</p>
           <p>세상 절겁게 놀다 가시길 바랍니다!</p>
         </div>
+
+        <CommentSection />
       </div>
     </main>
   );
