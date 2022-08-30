@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import Modal from 'react-modal';
 import api from '../utils/api';
 import Button from './common/Button';
+import Loading from './common/Loading';
 
 const customStyles = {
   overlay: {
@@ -40,6 +41,7 @@ interface CommentsResponse {
 function CommentSection() {
   const [data, setData] = useState(initialData);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [comments, setComments] = useState<Comment[] | null>(null);
 
@@ -73,12 +75,15 @@ function CommentSection() {
 
   const handleSubmitComment = async () => {
     try {
+      setIsLoading(true);
       await api.put('/wapi/items', data);
 
       await fetchComments();
     } catch (err) {
       console.log(err);
     } finally {
+      setIsLoading(false);
+
       handleCloseModal();
       setData(initialData);
     }
@@ -129,6 +134,7 @@ function CommentSection() {
           </div>
         </div>
       </Modal>
+      {isLoading && <Loading />}
     </div>
   )
 }
