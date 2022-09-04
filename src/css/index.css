@@ -17,3 +17,7 @@ body {
 input[disabled] {
   background-color: #ffffff;
 }
+
+*:focus {
+  outline: none;
+}

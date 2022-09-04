@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import Modal from 'react-modal';
 import api from '../utils/api';
+import { formatDate } from '../utils/date';
 import Button from './common/Button';
 import Loading from './common/Loading';
 
@@ -15,6 +16,7 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    borderRadius: 6,
   },
 };
 
@@ -90,14 +92,22 @@ function CommentSection() {
   };
 
   return (
-    <div className="pb-32 text-2xl text-center font-custom">
+    <div className="relative pb-32 text-2xl text-center font-custom">
       <h1 className="text-4xl font-bold mb-8">
         💌 축하 메세지 💌
       </h1>
-      <div className="mb-8">
+      <div className="mb-8 mx-8 text-left">
         {comments?.map(comment => (
-          <div key={comment.id}>
-            {comment.author}: {comment.comment}
+          <div key={comment.id} className="mb-8">
+            <div className="flex pl-1">
+              <h3 className="mr-2 font-extrabold">{comment.author}</h3>
+              <p className="text-gray-400">
+                {formatDate(comment.createdAt)}
+              </p>
+            </div>
+            <p className="whitespace-pre-line text-gray-700">
+              {comment.comment}
+            </p>
           </div>
         ))}
       </div>
@@ -108,29 +118,29 @@ function CommentSection() {
         // onAfterOpen={afterOpenModal}
         onRequestClose={handleCloseModal}
         style={customStyles}
-        contentLabel="Example Modal"
+        contentLabel="Comment Modal"
       >
         <div className="flex-col">
+          <h1 className="mb-4 text-3xl font-custom">축하 메세지 남기기</h1>
           <div>
             <input
               type="text"
               name="author"
-              className="border border-gray-400 mb-2 p-2"
-              placeholder="이름"
+              className="border-[1px] rounded-md border-gray-300 mb-2 p-2 caret-pink-400"
+              placeholder="작성자"
               onChange={handleChange}
               value={data.author}
             />
           </div>
-          <input
-            type="text"
+          <textarea
             name="comment"
-            className="border border-gray-400 mb-2 p-2"
+            className="border-[1px] rounded-md border-gray-300 mb-2 p-2 h-32 caret-pink-400 resize-none"
             placeholder="축하 메세지를 남겨주세요"
             onChange={handleChange}
             value={data.comment}
           />
           <div>
-            <button className="p-2 bg-gray-300 text-white" onClick={handleSubmitComment}>등록하기</button>
+            <button className="p-2 rounded-md bg-pink-400 text-white" onClick={handleSubmitComment}>등록하기</button>
           </div>
         </div>
       </Modal>
