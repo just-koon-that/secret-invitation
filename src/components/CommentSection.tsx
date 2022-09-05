@@ -152,7 +152,12 @@ function CommentSection() {
       </h1>
       <div className="mb-8">
         <div className="flex flex-col gap-4 mx-8 text-left">
-          {comments?.items.map(comment => (
+          {comments?.items.length === 0 ? (
+            <div className="text-center my-4">
+              <p>* 선착순 *</p>
+              <p>1등에겐 경품이?!</p>
+            </div>
+          ) : comments?.items.map(comment => (
             <CommentItem
               key={comment.id}
               {...comment}
