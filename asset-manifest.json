@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/secret-invitation/static/css/main.89ef0f11.css",
-    "main.js": "/secret-invitation/static/js/main.ff4f7e3d.js",
+    "main.js": "/secret-invitation/static/js/main.885a2ce1.js",
     "static/js/787.6a862505.chunk.js": "/secret-invitation/static/js/787.6a862505.chunk.js",
     "static/media/mudo_funny.png": "/secret-invitation/static/media/mudo_funny.703a7d45e46f5b8b02ba.png",
     "static/media/recaptcha-logo.png": "/secret-invitation/static/media/recaptcha-logo.4f9460efd454f01cccab.png",
@@ -10,11 +10,11 @@
     "index.html": "/secret-invitation/index.html",
     "static/media/heart-filled.svg": "/secret-invitation/static/media/heart-filled.23494b493b89daafbb850c3e193bbf24.svg",
     "main.89ef0f11.css.map": "/secret-invitation/static/css/main.89ef0f11.css.map",
-    "main.ff4f7e3d.js.map": "/secret-invitation/static/js/main.ff4f7e3d.js.map",
+    "main.885a2ce1.js.map": "/secret-invitation/static/js/main.885a2ce1.js.map",
     "787.6a862505.chunk.js.map": "/secret-invitation/static/js/787.6a862505.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.89ef0f11.css",
-    "static/js/main.ff4f7e3d.js"
+    "static/js/main.885a2ce1.js"
   ]
 }
