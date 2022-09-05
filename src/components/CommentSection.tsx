@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import Modal from 'react-modal';
+import useLocalStorage from '../hooks/useLocalStorage';
 import api from '../utils/api';
 import CommentItem from './comments/Item';
 import Button from './common/Button';
@@ -51,6 +52,8 @@ function CommentSection() {
   const [isLoading, setIsLoading] = useState(false);
   const [pagination, setPagination] = useState(initialPage);
   const [comments, setComments] = useState<CommentsResponse | null>(null);
+
+  const [currentLikes, setCurrentLikes] = useLocalStorage<Record<string, boolean>>('_likes', {});
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'unset';
@@ -118,6 +121,27 @@ function CommentSection() {
       setData(initialData);
     }
   };
+
+  const handleChangeLike = async (id: string, like: boolean) => {
+    try {
+      const {likes} = await api.put<{likes: number}>(`/wapi/items/${id}/${like ? 'like' : 'unlike'}`);
+
+      setComments(prevComments => prevComments ? ({
+        ...prevComments,
+        items: prevComments.items.map((item => item.id === id ? ({
+          ...item,
+          likes,
+        }) : item)),
+      }) : null);
+
+      setCurrentLikes({
+        ...currentLikes,
+        [id]: like,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   
   const isLast = comments && (comments.items.length === comments.total);
 
@@ -132,8 +156,8 @@ function CommentSection() {
             <CommentItem
               key={comment.id}
               {...comment}
-              like={false}
-              onChangeLike={console.log}
+              like={currentLikes[comment.id]}
+              onChangeLike={(like) => handleChangeLike(comment.id, like)}
             />
           ))}
         </div>

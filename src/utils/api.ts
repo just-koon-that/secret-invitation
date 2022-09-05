@@ -25,14 +25,14 @@ const api = {
         });
     })
   },
-  put: <T = any>(url: string, body: T) => {
+  put: <T = any>(url: string, body?: T): Promise<T> => {
     return new Promise((resolve, rej) => {
       fetch(getRequestUrl(url), {
         method: 'put',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(body),
+        body: body && JSON.stringify(body),
       })
         .then(async (response) => {
           const data = await response.json();
