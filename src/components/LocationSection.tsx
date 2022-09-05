@@ -143,7 +143,9 @@ function LocationSection() {
           </div>
           <div className="mb-4">
             <p className="font-bold underline">귀가</p>
-            <p>{`20시 양평 출발 > 21시30분쯤 왕십리 도착`}</p>  
+            <p>20시 양평 출발</p>  
+            ▾
+            <p>21시30분쯤 왕십리 도착</p>
           </div>
         </div>
         <Button onClick={openShuttleTicket}>

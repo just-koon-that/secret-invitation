@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import Modal from 'react-modal';
 import api from '../utils/api';
-import { formatDate } from '../utils/date';
+import CommentItem from './comments/Item';
 import Button from './common/Button';
 import Loading from './common/Loading';
 
@@ -29,23 +29,28 @@ interface Comment {
   id: string;
   author: string;
   comment: string;
-  password?: string;
+  likes?: number;
   createdAt: number;
   updatedAt: number;
 }
 
 interface CommentsResponse {
-  Count: number;
-  ScanCount: number;
-  Items: Comment[];
+  total: number;
+  items: Comment[];
 }
+
+const initialPage = {
+  page: 0,
+  limit: 5,
+};
 
 function CommentSection() {
   const [data, setData] = useState(initialData);
   const [isOpen, setIsOpen] = useState(false);
+  const [isMoreLoading, setIsMoreLoading] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  const [comments, setComments] = useState<Comment[] | null>(null);
+  const [pagination, setPagination] = useState(initialPage);
+  const [comments, setComments] = useState<CommentsResponse | null>(null);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'unset';
@@ -57,13 +62,36 @@ function CommentSection() {
 
   const fetchComments = async () => {
     try {
-      const data = await api.get<CommentsResponse>('/wapi/items');
+      const {page, limit} = initialPage;
+      const data = await api.get<CommentsResponse>(`/wapi/items?page=${page}&limit=${limit}`);
 
-      setComments(data.Items.sort((a, b) => b.createdAt - a.createdAt));
+      setComments(data);
     } catch (err) {
       console.log(err);
     }
-  }
+  };
+
+  const fetchMoreComments = async () => {
+    setIsMoreLoading(true);
+    try {
+      const {page, limit} = pagination;
+      const data = await api.get<CommentsResponse>(`/wapi/items?page=${page + 1}&limit=${limit}`);
+
+      setComments(prevComments => ({
+        total: data.total,
+        items: [...prevComments?.items || [], ...data.items],
+      }));
+
+      setPagination({
+        page: page + 1,
+        limit,
+      });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsMoreLoading(false);
+    }
+  };
 
   const handleChange = (e: any) => {
     setData(prevData => ({
@@ -90,29 +118,36 @@ function CommentSection() {
       setData(initialData);
     }
   };
+  
+  const isLast = comments && (comments.items.length === comments.total);
 
   return (
     <div className="relative pb-32 text-2xl text-center font-custom">
       <h1 className="text-4xl font-bold mb-8">
         💌 축하 메세지 💌
       </h1>
-      <div className="mb-8 mx-8 text-left">
-        {comments?.map(comment => (
-          <div key={comment.id} className="mb-8">
-            <div className="flex pl-1">
-              <h3 className="mr-2 font-extrabold">{comment.author}</h3>
-              <p className="text-gray-400">
-                {formatDate(comment.createdAt)}
-              </p>
-            </div>
-            <p className="whitespace-pre-line text-gray-700">
-              {comment.comment}
-            </p>
-          </div>
-        ))}
+      <div className="mb-8">
+        <div className="flex flex-col gap-4 mx-8 text-left">
+          {comments?.items.map(comment => (
+            <CommentItem
+              key={comment.id}
+              {...comment}
+              like={false}
+              onChangeLike={console.log}
+            />
+          ))}
+        </div>
+        {(comments && !isLast) && (
+          <button
+            className="text-center py-2 px-12"
+            disabled={isMoreLoading}
+            onClick={fetchMoreComments}
+          >
+            {!isMoreLoading ? '더 볼래요?' : '잠시만요...'}
+          </button>
+        )}
       </div>
-      
-      <Button onClick={handleOpenModal}>✉️ 메세지 남기기</Button>
+      <Button onClick={handleOpenModal}>{(comments?.total || 0) + 1}번째 메세지 남기기 🥳</Button>
       <Modal
         isOpen={isOpen}
         // onAfterOpen={afterOpenModal}
