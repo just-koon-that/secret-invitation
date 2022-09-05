@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/secret-invitation/static/css/main.7e9444b2.css",
-    "main.js": "/secret-invitation/static/js/main.082922dc.js",
+    "main.css": "/secret-invitation/static/css/main.89ef0f11.css",
+    "main.js": "/secret-invitation/static/js/main.ff4f7e3d.js",
     "static/js/787.6a862505.chunk.js": "/secret-invitation/static/js/787.6a862505.chunk.js",
     "static/media/mudo_funny.png": "/secret-invitation/static/media/mudo_funny.703a7d45e46f5b8b02ba.png",
     "static/media/recaptcha-logo.png": "/secret-invitation/static/media/recaptcha-logo.4f9460efd454f01cccab.png",
     "static/media/mudo_chic.png": "/secret-invitation/static/media/mudo_chic.2190f628e34b4c126d16.png",
+    "static/media/heart-outlined.svg": "/secret-invitation/static/media/heart-outlined.04b452de631ffc1186a2ce7e84682663.svg",
     "index.html": "/secret-invitation/index.html",
-    "main.7e9444b2.css.map": "/secret-invitation/static/css/main.7e9444b2.css.map",
-    "main.082922dc.js.map": "/secret-invitation/static/js/main.082922dc.js.map",
+    "static/media/heart-filled.svg": "/secret-invitation/static/media/heart-filled.23494b493b89daafbb850c3e193bbf24.svg",
+    "main.89ef0f11.css.map": "/secret-invitation/static/css/main.89ef0f11.css.map",
+    "main.ff4f7e3d.js.map": "/secret-invitation/static/js/main.ff4f7e3d.js.map",
     "787.6a862505.chunk.js.map": "/secret-invitation/static/js/787.6a862505.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7e9444b2.css",
-    "static/js/main.082922dc.js"
+    "static/css/main.89ef0f11.css",
+    "static/js/main.ff4f7e3d.js"
   ]
 }
