@@ -176,7 +176,7 @@ function CommentSection() {
           </button>
         )}
       </div>
-      <Button onClick={handleOpenModal}>{(comments?.total || 0) + 1}번째 메세지 남기기 🥳</Button>
+      <Button onClick={handleOpenModal}>{(comments?.total === 0 ? '첫 번째 ' : '')}메세지 남기기 🥳</Button>
       <Modal
         isOpen={isOpen}
         // onAfterOpen={afterOpenModal}

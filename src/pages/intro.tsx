@@ -40,6 +40,9 @@ function IntroPage({onNext}: IntroPageProps) {
         animationData: require(`../assets/lotties/${isCorrect ? 'success' : 'failed'}.json`),
       });
       lt.addEventListener('complete', () => {
+        if (!isCorrect) {
+          return;
+        }
         const verifiedDate = window.localStorage.getItem('_kawlt');
         if (verifiedDate && !isExpired(verifiedDate)) {
           return onNext?.();
