@@ -16,3 +16,11 @@ export function formatDate(date: Date | number | string) {
   }
   return format(d, 'p LLL do', {locale: ko});
 }
+
+export function isExpired(date: Date | number | string) {
+  const d = new Date(+date);
+  const now = Date.now();
+  const diff = (now - d.getTime()) / 1000;
+
+  return diff > 60 * 60 * 24 * 7;
+}

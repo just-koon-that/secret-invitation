@@ -3,6 +3,7 @@ import lottie from 'lottie-web';
 import EnterCode from '../components/common/EnterCode';
 import ReCaptcha from '../components/common/ReCaptcha';
 import useWindowDimensions from '../hooks/useWindowDimensions';
+import {isExpired} from '../utils/date';
 
 const ENTER_CODE = '1015';
 
@@ -39,6 +40,10 @@ function IntroPage({onNext}: IntroPageProps) {
         animationData: require(`../assets/lotties/${isCorrect ? 'success' : 'failed'}.json`),
       });
       lt.addEventListener('complete', () => {
+        const verifiedDate = window.localStorage.getItem('_kawlt');
+        if (verifiedDate && !isExpired(verifiedDate)) {
+          return onNext?.();
+        }
         setIsVerified(isCorrect);
       });
       lt.play();
@@ -46,7 +51,10 @@ function IntroPage({onNext}: IntroPageProps) {
   };
 
   const handleSubmitReCaptcha = () => {
-    onNext && onNext();
+    if (onNext) {
+      window.localStorage.setItem('_kawlt', Date.now().toString());
+      onNext();
+    }
   };
 
   const borderColor = isSuccess 

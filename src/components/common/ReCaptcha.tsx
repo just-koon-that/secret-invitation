@@ -55,7 +55,8 @@ function ReCaptcha({onSubmit}: ReCaptchaProps) {
   };
 
   const handleVerify = (question: Problem) => {
-    const isCorrect = clicked === question.correctNumber;
+    // const isCorrect = clicked === question.correctNumber;
+    const isCorrect = step === questions.length - 1;
 
     if (!isCorrect) {
       resetClicked();
